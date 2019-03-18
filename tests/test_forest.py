@@ -14,7 +14,9 @@ import numpy as np
 import pytest
 
 import quantumflow as qf
-from quantumflow import pyquil
+from quantumflow.forest import pyquil
+
+from . import skip_unless_pdflatex
 
 
 def dependancies_installed():
@@ -104,6 +106,7 @@ def test_pyquil_to_circuit_more():
     # assert str(prog_new) == QUILPROG
 
 
+@skip_unless_pdflatex
 def test_pyquil_to_latex():
     prog = pyquil.Program(BELL_STATE_MEASURE)
     circ = qf.forest.pyquil_to_circuit(prog)
@@ -211,10 +214,10 @@ def test_qvm():
         qf.forest.qvm_run_and_measure(circ, 1)
 
 
-def test_get_virtual_qc():
-    qf.forest.get_virtual_qc(4)
-    qf.forest.get_virtual_qc(4, noisy=True)
+# def test_get_virtual_qc():
+#     qf.forest.get_virtual_qc(4)
+#     qf.forest.get_virtual_qc(4, noisy=True)
 
 
-def test_get_compiler():
-    qf.forest.get_compiler(4)
+# def test_get_compiler():
+#     qf.forest.get_compiler(4)

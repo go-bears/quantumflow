@@ -25,6 +25,12 @@ TL = np
 """'TensorLibrary'. The actual imported backend python package
 """
 
+name = TL.__name__
+"""The tensor library's name"""
+
+version = TL.__version__
+"""The tensor library's version"""
+
 
 DEVICE = 'cpu'
 """Current device"""
@@ -74,7 +80,7 @@ sorted order
 """
 
 
-def gpu_available()->bool:
+def gpu_available() -> bool:
     """Does the backend support GPU acceleration on current hardware?"""
     return False
 

@@ -39,6 +39,8 @@ from .numpybk import astensor as np_astensor
 
 
 TL = torch
+name = TL.__name__
+version = TL.__version__
 
 CTYPE = np.complex128
 FTYPE = np.float64
@@ -190,7 +192,7 @@ def diag(tensor: BKTensor) -> BKTensor:
     return torch.stack(torch.diag(tensor[0]), torch.diag(tensor[1]))
 
 
-def reshape(tensor: BKTensor, shape: list)-> BKTensor:
+def reshape(tensor: BKTensor, shape: list) -> BKTensor:
     return torch.stack((tensor[0].view(*shape), tensor[1].view(*shape)))
 
 
